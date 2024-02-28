@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1b1b1b;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    width: 100%;
+    height: 300px;
+    background-color: #e9a753;
+    border-radius: 12px;
+    gap: 30px;
+}
+
+.input-with-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.check-btn {
+    max-width: 200px;
+    width: 100%;
+    height: 30px;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #0000ff9c;
+    color: white;
+}
+
+.main-text {
+    top: 40px;
+    margin-inline: auto;
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
