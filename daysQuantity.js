@@ -1,14 +1,19 @@
 Date.prototype.getDaysQuantity = function (otherDate) {
 
-    const milisecondsDiff = Math.abs(this.getTime() - otherDate.getTime());
-    const daysQuantity = Math.floor(milisecondsDiff / (1000 * 3600 * 24));
+    try {
+        if(!(otherDate instanceof Date)) throw Error('Your value is not a Date..')
 
-    console.log('DAYS QUANTITY:', daysQuantity);
+        const milisecondsDiff = Math.abs(this.getTime() - otherDate.getTime());
+        const daysQuantity = Math.floor(milisecondsDiff / (1000 * 3600 * 24));
 
-    return daysQuantity;
+        return daysQuantity;
+    } catch (error) {
+        console.log(error, error.message);
+    }
 };
+
 
 const firstDate = new Date('2023.02.24');
 const secondDate = new Date('2024.02.24');
 
-firstDate.getDaysQuantity(secondDate);
+console.log(firstDate.getDaysQuantity(secondDate));

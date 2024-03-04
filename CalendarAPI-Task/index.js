@@ -72,26 +72,23 @@ async function authorize() {
 
 
 
-async function showBusy(auth, timeMin, timeMax) {
+const showBusy = async function(apiKey, timeMin, timeMax) {
 
+  const auth = await authorize();
   const calendar = google.calendar({ version: 'v3', auth });
 
   const fbq = await calendar.freebusy.query({
     requestBody: {
       timeMin: new Date(timeMin).toISOString(),
       timeMax: new Date(timeMax).toISOString(),
-      items: [{ id: 'primary' }]
+      items: [{ id: apiKey }]
   }
   })
 
-  console.log(fbq.data.calendars['primary'].busy, "BUSY");
-  return fbq.data.calendars['primary'].busy;
+  return fbq.data.calendars[apiKey].busy;
 
 }
 
-// authorize().then(showBusy).catch(console.error);
-
 module.exports = {
-  authorize: authorize,
   showBusy: showBusy
 }
